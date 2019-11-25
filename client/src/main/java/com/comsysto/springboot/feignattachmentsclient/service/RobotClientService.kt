@@ -70,7 +70,7 @@ class InMemoryMultipartFile(
     }
 
     override fun getContentType(): String? {
-        return "text/plain"
+        return "application/octet-stream"
     }
 
     override fun transferTo(dest: File) {

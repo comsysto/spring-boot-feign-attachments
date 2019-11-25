@@ -20,12 +20,9 @@ interface RobotFeignClient {
     @GetMapping(consumes = [MediaType.APPLICATION_JSON_VALUE])
     fun getRobots() : List<RobotModel>
 
-    @PostMapping(path = ["/{robotName}/constructionplan"], produces = [MediaType.MULTIPART_FORM_DATA_VALUE])
+    @PostMapping(path = ["/{robotName}/constructionplan"], consumes = [MediaType.MULTIPART_FORM_DATA_VALUE])
     fun addConstructionPlan(
             @PathVariable robotName: String,
             @PathVariable(name = "description") description: String,
             @PathVariable(name = "attachment") document: MultipartFile)
-
-    @GetMapping(path = ["/robotName/constructionplan"])
-    fun getConstructionPlan(@PathVariable robotName: String) : Any
 }
